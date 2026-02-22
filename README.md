@@ -2,7 +2,7 @@
 
 Example of Micropython & LVGL on the Guition 4848 available cheaply on Aliexpress.
 
-Standalone example running LVGL's built-in `lv_demo_widgets()` on the Guition ESP32-S3-4848S040 board. No networking, no custom UI — just the LVGL widget showcase on a 480x480 RGB display.
+Standalone example running LVGL on the Guition ESP32-S3-4848S040 board. No networking — just MicroPython + LVGL on a 480x480 RGB display.
 
 ## Hardware
 
@@ -52,7 +52,9 @@ Options:
 
 ## What you see
 
-After flashing, the display shows the LVGL widget demo: buttons, sliders, checkboxes, dropdowns, charts, and more. No touch input is configured, so the demo runs in display-only mode.
+![Screenshot](screenshot.png)
+
+After flashing, the display shows an LVGL demo UI with a slider, button, and animated progress bar. No touch input is configured, so the demo runs in display-only mode.
 
 ## Project structure
 
@@ -65,7 +67,7 @@ drivers/
 
 firmware/
   flash.sh                    Flash + upload script
-  main.py                     Entry point: init display, run lv.demo_widgets()
+  main.py                     Entry point: init display, build demo UI
   board.py                    Board config loader
   board_guition_4848.py       Pin mapping and display init
   panel_init_guition_4848.py  ST7701S init sequence (frozen into firmware)
