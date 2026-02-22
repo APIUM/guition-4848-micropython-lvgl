@@ -94,9 +94,12 @@ compile() {
     # Tell the build where to find lv_binding_micropython
     export LV_BINDINGS_DIR="${LV_BINDING_DIR}"
 
+    # Copy custom partition table to where ESP-IDF expects it
+    cp "${BOARD_DIR}/partitions.csv" "${PORT_DIR}/partitions-16MiB-lvgl.csv"
+
     make -C "${PORT_DIR}" \
         BOARD_DIR="${BOARD_DIR}" \
-        -j"$(nproc)"
+        -j4
 
     # Find the output binary
     local build_dir="${PORT_DIR}/build-${BOARD_UPPER}"
